@@ -1,0 +1,49 @@
+﻿@model IEnumerable<BookStore.DomainModels.Item>
+
+@{
+    Layout = "~/Areas/PublicArea/Views/Shared/_PublicLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CategoryItemIndex</title>
+</head>
+<body>
+    <div class="elementor-posts-container elementor-posts elementor-posts--skin-cards elementor-grid">
+        @foreach (var item in Model)
+        {
+            <article class="elementor-post elementor-grid-item post-18 post type-post status-publish format-standard has-post-thumbnail hentry category-6">
+                <div class="elementor-post__card">
+                    <a href='@Url.Action("ItemDitels", "Public",new { ItemId=item.Id })'>
+                        <div class="elementor-post__thumbnail"><img width="300" height="199" src="@item.ImgUrl" class="attachment-medium size-medium" 
+                                                                    alt="@item.Name"
+                                                                    srcset="@*@category.ImgUrl*@ 300w, https://winter-binyamin.com/wp-content/uploads/2018/11/gfhdf-768x510.jpg 768w, https://winter-binyamin.com/wp-content/uploads/2018/11/gfhdf.jpg 800w"
+                                                                    sizes="(max-width: 300px) 100vw, 300px" /></div>
+                    </a>
+
+                    <div class="elementor-post__badge">@item.Name</div>
+                    <div class="elementor-post__text">
+                        <h3 class="elementor-post__title">
+                            <a href='@Url.Action("ItemDitels", "Public",new { ItemId=item.Id })'>
+                                @item.Name
+                            </a>
+                        </h3>
+                        @*<div class="elementor-post__excerpt">
+                                <p>@item.Description &nbsp;</p>
+                            </div>*@
+                        <a class="elementor-post__read-more" href='@Url.Action("ItemDitels", "Public",new { ItemId=item.Id })'>
+                            קרא עוד
+                        </a>
+                    </div>
+                </div>
+            </article>
+        }
+
+    </div>
+
+    }
+</body>
+</html>

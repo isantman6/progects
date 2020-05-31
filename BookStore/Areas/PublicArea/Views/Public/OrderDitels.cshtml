@@ -1,0 +1,34 @@
+﻿@model BookStore.DomainModels.OrderModels.Order
+
+@{
+    ViewBag.Title = "OrderDitels";
+    Layout = "~/Areas/PublicArea/Views/Shared/_PublicLayout.cshtml";
+}
+
+<h2>OrderDitels</h2>
+
+<div>
+    <h4>Order</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalPayment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalPayment)
+        </dd>
+      
+        <dt>
+            @Html.DisplayNameFor(model => model.client.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.client.FullName)
+        </dd>
+
+        
+
+    </dl>
+</div>
+

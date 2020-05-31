@@ -1,0 +1,81 @@
+﻿@model BookStore.DomainModels.OrderModels.Order
+
+@{
+    ViewBag.Title = "OrderNow";
+    Layout = "~/Areas/PublicArea/Views/Shared/_PublicLayout.cshtml";
+}
+
+<h2>OrderNow</h2>
+<dt>
+    @Html.DisplayNameFor(model => model.MyItems)
+</dt>
+
+<dd>
+    @foreach (var item in Model.MyItems)
+    {
+        <div> @item.Name       מחיר @item.Price        כמות   @item.AmountToOrder         מחיר סופי    @item.TotalPriec </div>
+    }
+
+</dd>
+
+
+@using (Html.BeginForm("OrderDitels","Public"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Order</h4>
+        <form class="Ditels" action="OrderDitels" enctype="multipart/form-data" method="post" role="form">
+            <div class="box-body">
+                <div class="form-group">
+                    <label for="text">שם</label>
+                    <input type="text" name="Name" class="form-control" placeholder="שם מלא">
+                </div>
+                <div class="form-group">
+                    <label for="text">מספר טלפון</label>
+                    <input type="text" name="PhonNumber" class="form-control" placeholder="טלפון">
+                </div>
+                <div class="form-group">
+                    <label for="text">עיר</label>
+                    <input type="text" name="City" class="form-control" placeholder="City">
+                </div><div class="form-group">
+                    <label for="text">רחוב</label>
+                    <input type="text" name="Street" class="form-control" placeholder="ZipNumber">
+                </div>
+                <div class="form-group">
+                    <label for="text">מיקוד</label>
+                    <input type="text" name="ZipNumber" class="form-control" placeholder="ZipNumber">
+                </div>
+                <div class="form-group">
+                    <label for="text">Mail</label>
+                    <input type="text" name="Mail" class="form-control" placeholder="כתובת מייל">
+                </div>
+                @*@foreach (var prop in ViewBag.address)
+                {
+                  
+                        <label for="text">@prop</label>
+                        <input type="text" name=@prop class="form-control" placeholder="@prop">
+                   
+                }*@
+                <input type="hidden" name="OrderId" value="@Model.Id">
+
+            </div>
+            <div class="box-footer">
+                @*<a href="@Url.Action("OrderDitels", "Public" )" class="button" onclick="SubmitForm()">לתשלום</a>*@
+                <button type="submit"  class="btn btn-primary">Submit</button>&nbsp;
+            </div>
+        </form>
+
+        
+       
+
+
+</div>
+}
+<script type="text/javascript">
+    function SubmitForm()
+    {
+        ('form#Ditels').submit();
+    }
+</script>
+

@@ -1,0 +1,80 @@
+﻿@model BookStore.DomainModels.Item
+
+@{
+    ViewBag.Title = "ItemDitels";
+    Layout = "~/Areas/PublicArea/Views/Shared/_PublicLayout.cshtml";
+}
+<head>
+
+</head>
+
+<h2>ItemDitels</h2>
+
+<div>
+    <h4>Item</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Author)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Author)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImgUrl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImgUrl)
+        </dd>
+
+        
+
+
+        
+    </dl>
+</div>
+
+<form action='@Url.Action("OrderNow","Public")'>
+
+
+    <div class="form-group">
+
+        <input type="hidden" id="ItemId" name="ItemId" value="@Model.Id">
+        <label>כמות</label>
+        <input id="AmountToBuy" type="number" name="AmountToBuy">
+    </div>
+    <div class="box-footer">
+            <button type="submit" class="btn btn-primary">הזמן עכשיו</button>&nbsp;
+
+        </div>
+
+</form>
+
+
